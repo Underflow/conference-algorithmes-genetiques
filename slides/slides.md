@@ -7,6 +7,8 @@
 
 ### Définition formelle
 
+\footnotetext[1]{Ah oui très bien !}
+
 #### Minimisation
 
 Soit E un ensemble et $f : E \to \mathbb{R}$, trouver $y \in E$ tel que
@@ -16,6 +18,9 @@ $\forall x \in E, f(y) \leq f(x)$
 
 Soit E un ensemble et $f : E \to \mathbb{R}$, trouver $y \in E$ tel que
 $\forall x \in E, f(y) \geq f(x)$
+
+
+
 
 ### Définition un peu moins formelle...
 
