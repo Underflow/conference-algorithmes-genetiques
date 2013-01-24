@@ -48,6 +48,8 @@ parcourir chaque pixel de votre image et calculer la moyenne de la somme de la d
 de chaque composante RGB de chaque pixels[^1].  
 Ce chiffre sera donc compris entre 0 et $255*3$
 
+Vous venez de coder la fonction de fitness de votre algorithme génétique.
+
 [^1]: Je n'ai pas plus clair, désolé !
 
 #### Prototype  
@@ -99,4 +101,104 @@ sein des individus.
 Codez une fonction qui randomize le gène en appelant la fonction codée
 précédemment avec une probabilitée de $1/n$ a avec n passé en paramètre.
 
+### Le génome
 
+Il est temps de créer une structure de donnée (struct ou classe) destinée à 
+représenter l'ADN de vos individus. Celle-ci doit contenir une liste de gènes,
+qui constituent l'ensemble des carrés à dessiner sur l'image ainsi qu'un
+fitness (ou score) valant initialement 0.
+
+#### Génération
+
+Vous coderez une fonction générant un génome contenant 400 gènes aléatoires à
+l'aide de la fonction de randomisation des gènes.
+
+#### Mutation
+
+Il est nécessaire de pouvoir faire muter l'ensemble du génome. Pour cela, on
+parcours la liste de gène et on appèle la fonction de mutation pour chaque
+gène.
+
+#### Croisement
+
+Vous allez commencer par écrire la fonction destinée à mélanger deux ADN pour 
+former un nouvel individu.
+
+L'algorithme de coït-fecondation va parcourir le génome des deux individus et
+pour chaque gène on tire au sort l'un des individus afin de former le nouveau
+génome.
+
+Le nouveau génome sera donc constitué de la moitié (environ) des gènes du père,
+et de la moitié des gènes de la mère.
+
+#### Evaluation
+
+Pour pouvoir séléctionner les meilleurs individus, il faut être capable de
+déterminer le score de chaque individu. Il va donc falloir rmeplir la variable
+fitness du génome.
+
+Commencez par générer l'image (la surface) correspondant à votre génome. Pour
+cela, créez une surface puis parcourez la liste de gène de votre génome. Pour
+chaque gène, appelez la fonction de dessin de carré avec les bons arguments.
+
+Une fois tous les gènes dessinés, vous obtenez l'image décrite par votre génome
+et vous pouvez l'évaluer.
+
+Comparez l'image obtenue avec le modèle en utilisant la fonction de
+comparaison. Le fitness que vous placerez dans votre structure de donnée
+correspondant au génome sera égal à 756 - comparaison(surface_genome, modele)
+
+### Population
+
+La population sera tout simplement une liste de génomes.
+
+#### Initialisation
+
+Créez une fonction d'initialisation de votre population, prenant la taille de
+la population en paramètre et le nombre d'individus.
+
+Remplissez la liste de génomes générés aléatoirement à l'aide des fonctions
+précédemment codées.
+
+#### Séléction
+
+Il va être nécessaire de séléctionner les meilleurs individus de votre
+population.
+
+Pour cela, commencez par évaluer (en utilisant la fonction codée précédemment)
+chaque génome de la liste, puis triez la liste en fonction de la valeur du
+fitness de chaque élément.
+
+Enfin, codez une fonction select, qui retournera un "bon individu" :
+
+~~~
+Pour chaque individu de la_population_triée
+    Si (une_chance_sur_deux) alors
+        retourne individu
+    fin si
+fin pour
+retourne dernier_individu_de_la_population
+~~~
+
+#### Reproduction
+
+La partie marrante commence puisqu'on va coder un superbe algorithme de
+gang-bang pour la population !
+
+Le but est ici de générer une nouvelle population à partir de la génération
+courrante.
+
+Pour cela, on va remplir une nouvelle liste de génome (i.e une nouvelle 
+population) de génomes croisés. Pour cela, on crée une nouvelle liste, et on
+ajoute les élements au fur et à mesure, en utilisant la fonction de croisement
+que vous avez déjà codé, en passant en paramètre deux individus selectionnés à
+l'aide de la fonction de séléction.
+
+Ainsi, un bon individu à des chance de se reproduire puisqu'il a des chances
+d'être tiré au sort pour être croisé avec un autre individu.
+
+Tout comme les êtres vivants, la reproduction ne fonctionne pas toujours très
+bien, on va simuler ce processus en appelant la fonction de mutation sur chaque
+génome de la population crée.
+
+## Faisons marcher le tout !
