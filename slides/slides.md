@@ -196,6 +196,70 @@ l'émergence d'entités capables de se reproduire.
 
 \begin{center}\includegraphics[scale=0.5]{adn.png}\end{center}
 
-### Traduction de l'ADN
+### Du génotype au phénotype
 
 \begin{center}\includegraphics[scale=0.5]{translation.png}\end{center}
+
+### Et l'algorithmie dans tout ça ?
+
+Les algorithmes génétiques implémentent l'ensemble de ces processus. Tout comme
+les êtres vivants, les solutions évoluent progressivement vers l'optimalité !
+
+### L'espace de recherche
+
+#### Rappel
+
+Fonction de coût (fitness pour un algorithme génétique) : $f : E \to \mathbb{R}$
+
+#### Génome
+
+Vous cherchez un élement de E, pour cela, on commence par définir un génome
+(ADN) "codant" un élement de E.
+
+Le génome est une suite d'octets (découpés en gènes) pouvant représenter par exemple :
+
+* Un ou plusieurs nombres (optimisation combinatoire)
+* Une image, la position de solides pour une simulation physique (<3)
+* Une séquence d'instructions, un arbre de syntaxe abstrait
+* ...
+
+### Population et individus
+
+Afin de simuler l'évolution, il est nécessaire de disposer d'une population.
+
+* Une population est un ensemble fini d'individus (caractérisés par un génome).
+* La taille de la population influe sur la rapidité de convergence de
+l'algorithme.
+* La population est triée en classant les individus en fonction de leur
+  fitness.
+
+### Reproduction
+
+On mélange le génome de deux individus.
+
+* Mélange gène par gène, octet par octet...
+* Mélange des sous-arbres (génome arborescent)
+
+La reproduction doit avoir un sens, c'est à dire qu'il doit y avoir une
+continuité des phénotypes après reproduction.
+
+
+### Selection artificielle
+
+La séléction permet de faire émerger les meilleurs individus au fur et à mesure
+des générations.
+
+* Selection par tournoi
+* Selection avec roue biaisée
+* Reward-based selection (les individus héritent un score de récompense de
+  leur parents s'ils ont tendance à faire évoluer la population)
+* etc...
+
+### Mutation
+
+Au cours de l'évolution, les individus doivent subir des mutations de façon à
+permettre l'apparition de nouveaux phénotypes.
+
+#### Définition
+Les mutations sont des modifications aléatoires, brutales et définitives du
+génome.
