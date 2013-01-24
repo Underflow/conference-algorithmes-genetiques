@@ -19,10 +19,7 @@ $\forall x \in E, f(y) \leq f(x)$
 Soit E un ensemble et $f : E \to \mathbb{R}$, trouver $y \in E$ tel que
 $\forall x \in E, f(y) \geq f(x)$
 
-
-
-
 ### Définition un peu moins formelle...
 
-Trouver le meilleur élément d'un ensemble à l'aide d'une fonction permettant
-d'évaluer chaque élément de cet ensemble.
+Trouver le meilleur élément d'un ensemble par rapport à une fonction de coût/de
+score permettant d'évaluer chaque élément de cet ensemble.
