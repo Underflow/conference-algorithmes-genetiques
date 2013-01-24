@@ -52,6 +52,11 @@ Alors vazzy monsieur kes tu nou pran la taite ?
 * Recherche exhaustive trop coûteuse
 * L'optimalité n'est pas requise
 
+
+# Métaheuristique
+
+## Définition
+
 ### Prérequis
 
 * $\forall x \in E \exists!y \in \mathbb{R} f(x) = y$
@@ -81,9 +86,9 @@ HillClimbing(initial) : State
 ### Random Restart Hill Climbing
 
 ~~~
-RRHillClimbing(problem, max\_iter) : State
+RRHillClimbing(problem, max_iter) : State
     best = HillClimbing(RandomState(problem))
-    for i = 1 to max\_iter do
+    for i = 1 to max_iter do
         next = HillClimbing(RandomState(problem))
         if Score(next) > Score(best) then
             best = next
@@ -102,7 +107,7 @@ RRHillClimbing(problem, max\_iter) : State
 ~~~
 SimulatedAnnealing(initial) : State
     current = initial
-    for time = 1 to \infinity do
+    for time = 1 to infinity do
         temp = GetTemp(time)
         if temp = 0 then
             return current
@@ -164,7 +169,9 @@ LocalBeam(problem) : State
 * Complet
 * Rapide
 
-## Algorithmes génétiques
+# Algorithmes génétiques
+
+## Un peu de biologie...
 
 ### Citations
 
@@ -177,14 +184,14 @@ LocalBeam(problem) : State
   vivant sont mieux expliquées par Dieu que par des processus non dirigés tels
   que la sélection naturelle'' (New World Encyclopaedia)
 
-### Une histoire de selection naturelle
+### Une histoire de séléction naturelle
 
 \begin{center}\includegraphics[scale=0.5]{selection.png}\end{center}
 
-La séléction naturelle est un phénomène naturel qui s'est mis en place avec
+La séléction naturelle est un phénomène qui s'est mis en place avec
 l'émergence d'entités capables de se reproduire.
 
-### Un peu de biologie...
+### Une histoire de séléction naturelle (2)
 
 * Plus un être vivant est "performant" plus il a de chances de se reproduire
 * La performance d'un individu dépend de son génome (ADN)
@@ -199,6 +206,8 @@ l'émergence d'entités capables de se reproduire.
 ### Du génotype au phénotype
 
 \begin{center}\includegraphics[scale=0.5]{translation.png}\end{center}
+
+## Je commence à penser que je me suis trompé de conférence
 
 ### Et l'algorithmie dans tout ça ?
 
@@ -263,3 +272,63 @@ permettre l'apparition de nouveaux phénotypes.
 #### Définition
 Les mutations sont des modifications aléatoires, brutales et définitives du
 génome.
+
+### Algorithme complet
+
+~~~
+Initialiser la population aléatoirement avec n individus
+Tant que vrai
+    Muter la population
+    Trier la population en fonction du fitness
+    Si le meilleur individu est satisfaisant
+        retourner l'individu
+    Créer une nouvelle population
+    Pour i = 1 to n faire
+        Choisir deux bons individu
+        Les croiser et les ajouter dans la
+            nouvelle population
+~~~
+
+### Meta-algorithme génétique
+
+L'efficacité d'un algorithme génétique dépend de plusieurs paramètres :
+
+* La taille de la population
+* La fréquence de mutation
+* La méthode de selection
+* La méthode de croisement
+
+
+L'ensemble de ces paramètres constitue un ensemble et l'efficacité d'un algorithme génétique peut se mesurer à l'aide de la vitesse de convergence vers le résultat optimum.
+
+On peut donc faire des algorithmes génétiques dans des algorithmes
+génétique[^1].
+
+[^1]: C'est un peu comme Inception
+
+## Exemples d'applications
+
+
+### Un peu de fun : BoxCar2D
+
+BoxCar2D est un projet développé en Flash. Il s'agit d'un algorithme génétique
+construisant des voitures et les entrainant à l'aide d'une séléction naturelle.
+
+* Le génome est l'ensemble des informations pour construire la voiture :
+  polygones, angles des roues, etc...
+* La fonction de fitness est une simulation physique pour déterminer la
+  distance parcourue.
+* La reproduction est effectuée en mélangeant la position des points formant
+  les polygones, l'angle et la taille des roues de chaque voiture.
+* La séléction est assurée via un algorithme de roue biaisée.
+
+## Le TP
+
+### Présentation
+
+Pendant le TP, vous allez réaliser un algorithme génétique qui va chercher à
+reproduire une image. Vous pourrez admirer les populations évoluer avec un rendu graphique : l'image va se dessiner petit à petit sous vos yeux !
+
+### Résultat
+
+\begin{center}\includegraphics[scale=0.5]{joconde.png}\end{center}
