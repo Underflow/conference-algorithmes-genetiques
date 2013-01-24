@@ -308,6 +308,23 @@ génétique[^1].
 
 ## Exemples d'applications
 
+### Entrainement de réseau de neurones
+
+Le calcul effectué par un réseau de neurone dépend uniquement d'une liste de
+coefficients réels. Ce problème peut tout à fait être traité à l'aide d'un
+algorithme génétique.
+
+* Génome : Liste des poids
+* Fonction de fitness : Erreur commise par le réseau de neurone
+* Reproduction : Mélange des poids
+
+### Intelligence artificielle
+
+Une intelligence artificielle peut être entrainée à l'aide d'un réseau de
+neurones.
+
+* Seuls certains coefficients de l'algorithme sont optimisés.
+* On peut directement faire "combattre" les intelligences entre elles pour la selection
 
 ### Un peu de fun : BoxCar2D
 
