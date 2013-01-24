@@ -39,7 +39,7 @@ score permettant d'évaluer chaque élément de cet ensemble.
 
 Mais euh ! On connaît déjà
 
-* A
+* A\*
 * Parcours largeur
 * Parcours profondeur
 * Bob le Bricoleur
@@ -54,4 +54,62 @@ Alors vazzy monsieur kes tu nou pran la taite ?
 
 ### Prérequis
 
-* $\forall x \in E \exists!y f(x) = y$
+* $\forall x \in E \exists!y \in \mathbb{R} f(x) = y$
+* $\forall x \in E \exists y \in E^{n} Succ(x) = y$
+
+## Let's go fuckin code
+
+### Hill-Climbling
+
+~~~
+HillClimbing(initial) : State
+  current = initial
+  forever
+    next = BestSuccessor(initial)
+    if Score(next) < Score(current) then
+        return current
+    current = next
+~~~
+
+#### Savokoi
+
+* Rapide
+* Simple
+* Mais extremum local
+* Mais plateaux
+
+### Random Restart Hill Climbing
+
+~~~
+RRHillClimbing(problem, max\_iter) : State
+    best = HillClimbing(RandomState(problem))
+    for i in max\_iter do
+        next = HillClimbing(RandomState(problem))
+        if Score(next) > Score(best) then
+            best = next
+    return best
+~~~
+
+#### SKE C B1 LOL ?
+
+* Toujours rapide sur des ensembles réduits
+* Évite plateaux et extremums locaux
+* problématique sur des problèmes NP-complets avec beaucoup d'extremums locaux
+* N'autorise pas les "retours arrière" donc incomplet
+
+### Simulated Annealing
+
+~~~
+SimulatedAnnealing(initial) : State
+    current = initial
+    for time = 1 to \infinity do
+        temp = GetTemp(time)
+        if temp = 0 then
+            return current
+        next = RandomChoice(Successors(current))
+        diff = Score(next) - Score(current)
+        if diff > 0
+            current = next
+        else if AcceptMaybe(exp(diff / temp)) then
+            current = next
+~~~
