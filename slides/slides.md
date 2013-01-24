@@ -90,7 +90,7 @@ RRHillClimbing(problem, max\_iter) : State
     return best
 ~~~
 
-#### SKE C B1 LOL ?
+#### Verdict
 
 * Toujours rapide sur des ensembles réduits
 * Évite plateaux et extremums locaux
@@ -164,7 +164,7 @@ LocalBeam(problem) : State
 * Complet
 * Rapide
 
-## Genetic Algorithm
+## Algorithmes génétiques
 
 ### Citations
 
@@ -176,3 +176,26 @@ LocalBeam(problem) : State
   preuves empiriques que certaines observations de l’univers et du monde du
   vivant sont mieux expliquées par Dieu que par des processus non dirigés tels
   que la sélection naturelle'' (New World Encyclopaedia)
+
+### Une histoire de selection naturelle
+
+\begin{center}\includegraphics[scale=0.5]{selection.png}\end{center}
+
+La séléction naturelle est un phénomène naturel qui s'est mis en place avec
+l'émergence d'entités capables de se reproduire.
+
+### Un peu de biologie...
+
+* Plus un être vivant est "performant" plus il a de chances de se reproduire
+* La performance d'un individu dépend de son génome (ADN)
+* Quand un individu se reproduit, il mélange son ADN avec un autre individu
+* Au cours de sa vie et pendant la reproduction, des erreurs de copie d'ADN
+  surviennent : les mutations
+
+### De l'ADN
+
+\begin{center}\includegraphics[scale=0.5]{adn.png}\end{center}
+
+### Traduction de l'ADN
+
+\begin{center}\includegraphics[scale=0.5]{translation.png}\end{center}
