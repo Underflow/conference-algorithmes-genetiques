@@ -8,7 +8,8 @@
 ### Définition formelle
 
 \footnotetext[1]{Si E est un ensemble tel que $dim(E) \geq 1$ on parle
-d'optimisation combinatoire.} \footnotetext[2]{Ah oui très bien !}
+d'optimisation combinatoire.}
+\footnotetext[2]{Ah oui très bien !}
 
 Soit E un ensemble et $f : E \to \mathbb{R}$
 
@@ -32,20 +33,25 @@ score permettant d'évaluer chaque élément de cet ensemble.
 * Trouver le plus court chemin entre deux villes
 * Chercher les meilleurs paramètres pour une intelligence artificielle
 
-## Quand ?
+## Quand
+
 ### Ce qui est connu
 
 Mais euh ! On connaît déjà
 
-* A\*
+* A
 * Parcours largeur
 * Parcours profondeur
+* Bob le Bricoleur
 * Dijkstra
 
 Alors vazzy monsieur kes tu nou pran la taite ?
 
-## Du calme jeune homme fougueux
+### Du calme jeune homme fougueux
 
 * Recherche exhaustive trop coûteuse
 * L'optimalité n'est pas requise
 
+### Prérequis
+
+* $\forall x \in E \exists!y f(x) = y$
