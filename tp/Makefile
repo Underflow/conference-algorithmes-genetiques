@@ -1,5 +1,5 @@
 all:
-	pandoc tp.md -o tp.pdf
+	pandoc -N -V -lang=french tp.md -o tp.pdf
 
 clean:
 	rm tp.pdf
