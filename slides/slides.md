@@ -168,11 +168,11 @@ LocalBeam(problem) : State
 
 ### Citations
 
-* « La sélection sexuelle... dépend de l'ardeur, du courage, de la rivalité des
-  mâles autant que du discernement, du goût et de la volonté de la femelle. »
+* ``La sélection sexuelle... dépend de l'ardeur, du courage, de la rivalité des
+  mâles autant que du discernement, du goût et de la volonté de la femelle.''
   (Charles Darwin / 1809-1882)
-* « C'est d'la merde » (Aurélie Teri)
-* « Le créationnisme  est la vue qu’il est possible de déduire grâce aux
+* ``C'est d'la merde'' (Aurélie Teri)
+* ``Le créationnisme est la vue qu’il est possible de déduire grâce aux
   preuves empiriques que certaines observations de l’univers et du monde du
   vivant sont mieux expliquées par Dieu que par des processus non dirigés tels
-  que la sélection naturelle » (New World Encyclopaedia)
+  que la sélection naturelle'' (New World Encyclopaedia)
