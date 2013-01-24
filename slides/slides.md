@@ -83,7 +83,7 @@ HillClimbing(initial) : State
 ~~~
 RRHillClimbing(problem, max\_iter) : State
     best = HillClimbing(RandomState(problem))
-    for i in max\_iter do
+    for i = 1 to max\_iter do
         next = HillClimbing(RandomState(problem))
         if Score(next) > Score(best) then
             best = next
@@ -113,3 +113,66 @@ SimulatedAnnealing(initial) : State
         else if AcceptMaybe(exp(diff / temp)) then
             current = next
 ~~~
+
+### Simulated Annealing (2)
+#### Ouh, c'est chaud
+
+* Complet
+* Rapide
+* Mais utilise trop peu de mémoire, pourquoi ne pas BOURRINER UN PEU PLUS ?
+
+### Particle Swarm Optimization
+
+~~~
+PSO(problem) : State
+    currents = GetKRandomStates(problem, K)
+    forever
+        foreach state in currents
+            state = ApplyForceTo(state, Best(currents));
+        if IsSolution(Best(scores)) then
+            return Best(scores)
+~~~
+
+#### Verdict
+
+* Définition de "force" compliquée sinon
+* Très joli à afficher :D
+* Intéressants dans des espaces "spatiaux" 2D ... nD
+* Beaucoup de notions superflues (acceleration, force, vitesse)
+
+### Local Beam Search
+
+~~~
+LocalBeam(problem) : State
+    currents = GetKRandomStates(problem, K)
+    forever
+        nexts = {}, scores = []
+        foreach state in currents do
+            nexts += Successors(state)
+        foreach state in nexts
+            scores += (Score(state), state)
+        Sort(scores)
+        currents = {}
+        if IsSolution(Best(scores)) then
+            return Best(scores)
+        currents = KeepKBests(scores, K)
+~~~
+
+#### Verdict
+
+* Utilise bien la mémoire
+* Complet
+* Rapide
+
+## Genetic Algorithm
+
+### Citations
+
+* « La sélection sexuelle... dépend de l'ardeur, du courage, de la rivalité des
+  mâles autant que du discernement, du goût et de la volonté de la femelle. »
+  (Charles Darwin / 1809-1882)
+* « C'est d'la merde » (Aurélie Teri)
+* « Le créationnisme  est la vue qu’il est possible de déduire grâce aux
+  preuves empiriques que certaines observations de l’univers et du monde du
+  vivant sont mieux expliquées par Dieu que par des processus non dirigés tels
+  que la sélection naturelle » (New World Encyclopaedia)
