@@ -1,4 +1,4 @@
-Conference : Genetic algorithms
+GConfs : Genetic algorithms
 ===============================
 
 Guillame Sanchez et Quentin de Laroussilhe vous invitent à découvrir les
