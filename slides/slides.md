@@ -55,7 +55,12 @@ Alors vazzy monsieur kes tu nou pran la taite ?
 
 # Métaheuristique
 
-## Définition
+## Introduction
+
+### Définition
+
+* meta : au delà, au dessus
+* heuristique : trouver
 
 ### Prérequis
 
@@ -162,6 +167,8 @@ LocalBeam(problem) : State
             return Best(scores)
         currents = KeepKBests(scores, K)
 ~~~
+
+### Local Beam Search (2)
 
 #### Verdict
 
@@ -289,6 +296,28 @@ Tant que vrai
             nouvelle population
 ~~~
 
+### Convergence
+
+Les algorithmes génétiques convergent vers une solution optimale, mais sans
+aucune garantie qu'il s'agisse de la solution la plus optimale.
+
+Les algorithmes génétiques sont soumis aux problèmes des optimums locaux.
+
+\begin{center}\includegraphics[scale=0.3]{optimum.png}\end{center}
+
+### Solutions aux problème d'optimums locaux
+
+Le théorème de Wolpert et Macready (No free lunch in SO) prouve qu'il n'existe pas de méthode
+généraliste pour régler le problème de la convergence dans un optimum local.
+
+Cependant :
+
+* Changer la méthode de selection
+* Augmenter le taux de mutation
+* Ajouter des individus générés aléatoirement dans la population
+* Changer la méthode de croisement
+* Maintenir la diversité !
+
 ### Meta-algorithme génétique
 
 L'efficacité d'un algorithme génétique dépend de plusieurs paramètres :
@@ -316,7 +345,6 @@ algorithme génétique.
 
 * Génome : Liste des poids
 * Fonction de fitness : Erreur commise par le réseau de neurone
-* Reproduction : Mélange des poids
 
 ### Intelligence artificielle
 
@@ -335,9 +363,6 @@ construisant des voitures et les entrainant à l'aide d'une séléction naturell
   polygones, angles des roues, etc...
 * La fonction de fitness est une simulation physique pour déterminer la
   distance parcourue.
-* La reproduction est effectuée en mélangeant la position des points formant
-  les polygones, l'angle et la taille des roues de chaque voiture.
-* La séléction est assurée via un algorithme de roue biaisée.
 
 ## Le TP
 
